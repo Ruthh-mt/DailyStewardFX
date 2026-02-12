@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.LoginController">
+   <top>
+      <Label text="Connexion" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <AnchorPane prefHeight="367.0" prefWidth="432.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="69.0" layoutY="57.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="255.0" prefWidth="294.0">
+               <children>
+                  <Label prefWidth="34.0" text="Email :" />
+                  <TextField fx:id="emailField" />
+                  <Separator prefHeight="36.0" prefWidth="294.0" />
+                  <Label text="Mot de passe : " />
+                  <PasswordField fx:id="mdpField" />
+                  <Separator blendMode="LIGHTEN" prefHeight="36.0" prefWidth="294.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></Separator>
+                  <Button mnemonicParsing="false" onAction="#onConnexion" prefHeight="26.0" prefWidth="98.0" text="Connexion" />
+                  <Separator blendMode="LIGHTEN" layoutX="10.0" layoutY="229.0" prefHeight="18.0" prefWidth="294.0" />
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onInscription" prefHeight="26.0" prefWidth="98.0" text="S'inscrire" />
+                  <Separator blendMode="LIGHTEN" layoutX="10.0" layoutY="195.0" prefHeight="18.0" prefWidth="294.0" />
+                  <Hyperlink onAction="#onForgottenMdp" text="Mot de passe oubliée" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
