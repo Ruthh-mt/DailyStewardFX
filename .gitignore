@@ -37,3 +37,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Passwords for email sender and BDD ###
+**src/main/**/security/
