@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.accueil.RegisterController">
+   <top>
+      <Label text="Inscription" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <AnchorPane prefHeight="415.0" prefWidth="471.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="26.0" layoutY="14.0" prefHeight="351.0" prefWidth="422.0">
+               <children>
+                  <Label text="Nom : " />
+                  <TextField fx:id="nomField" />
+                  <Separator prefHeight="15.0" prefWidth="511.0" />
+                  <Label layoutX="10.0" layoutY="10.0" text="Prenom : " />
+                  <TextField fx:id="prenomField" />
+                  <Separator layoutX="10.0" layoutY="155.0" prefHeight="15.0" prefWidth="511.0" />
+                  <Label layoutX="10.0" layoutY="28.0" text="Email :" />
+                  <TextField fx:id="emailField" />
+                  <Separator layoutX="10.0" layoutY="53.0" prefHeight="15.0" prefWidth="511.0" />
+                  <Label layoutX="10.0" layoutY="45.0" text="Mot de passe : " />
+                  <PasswordField fx:id="mdpField" />
+                  <Separator prefHeight="15.0" prefWidth="511.0" />
+                  <Label text="Confirmation mot de passe : " />
+                  <PasswordField fx:id="confirmationMdpField" />
+                  <Separator blendMode="LIGHTEN" prefHeight="36.0" prefWidth="294.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Separator>
+                  <Button mnemonicParsing="false" onAction="#onInscription" prefHeight="26.0" prefWidth="98.0" text="S'inscrire" />
+                  <Separator blendMode="LIGHTEN" prefHeight="18.0" prefWidth="294.0" />
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onConnexion" prefHeight="26.0" prefWidth="98.0" text="Connexion" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button mnemonicParsing="false" text="Retour " />
+        </items>
+      </ToolBar>
+   </bottom>
+</BorderPane>

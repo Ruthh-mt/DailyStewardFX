@@ -37,7 +37,6 @@ public class LoginController {
                 }
             }else{
                 showAlert(Alert.AlertType.ERROR, "Erreur lors de la connexion");
-
             }
 
         }
