@@ -28,7 +28,8 @@ public class LoginController {
 
         }else{
             UtilisateurRepository userRepo = new UtilisateurRepository();
-            Utilisateur possibleUser=userRepo.getUserByMail(emailField.getText());
+            Utilisateur possibleUser=userRepo.getUserByMail(new Utilisateur(emailField.getText(),mdpField.getText()));
+            System.out.println(possibleUser);
             if(possibleUser!=null){
                 BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
                 if(encoder.matches(mdpField.getText(), possibleUser.getMdp())){

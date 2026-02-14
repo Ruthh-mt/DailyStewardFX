@@ -29,24 +29,23 @@ public class UtilisateurRepository {
         }
     }
 
-    public Utilisateur getUserByMail(String email) {
-        Utilisateur utilisateur=null;
+    public Utilisateur getUserByMail(Utilisateur user) {
         String get="SELECT * FROM utilisateur WHERE email=? ";
         try{
             PreparedStatement stmt=this.connection.prepareStatement(get);
-            stmt.setString(1, email);
+            stmt.setString(1, user.getEmail());
             ResultSet rs=stmt.executeQuery();
             if(rs.next()){
-                utilisateur=new Utilisateur(
+                user=new Utilisateur(
                        rs.getInt("id_user"),
                        rs.getString("nom"),
                        rs.getString("prenom"),
                        rs.getString("email"),
-                       rs.getString("role"),
-                       rs.getString("mot_de_passe")
+                       rs.getString("mot_de_passe"),
+                        rs.getString("role")
                );
             }
-            return utilisateur;
+            return user;
         }catch(SQLException e){
             System.out.println("Erreur de connexion : "+'\n'+" >>"+e.getMessage());
             return null;

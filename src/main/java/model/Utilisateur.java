@@ -77,4 +77,16 @@ public class Utilisateur {
     public void setRole(String role) {
         this.role = role;
     }
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "idUser :" + idUser +'\n'+
+                " nom='" + nom + '\n' +
+                " prenom='" + prenom + '\n' +
+                " email='" + email + '\n' +
+                " mdp='" + mdp + '\n' +
+                " role='" + role + '\n' +
+                '}';
+    }
 }

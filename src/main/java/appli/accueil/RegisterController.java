@@ -1,7 +1,6 @@
 package appli.accueil;
 
 import appli.StartApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -30,23 +29,25 @@ public class RegisterController {
     private TextField prenomField;
 
     @FXML
-    void onConnexion(ActionEvent event) throws IOException {
+    void onConnexion() throws IOException {
         StartApplication.changeScene("accueil/login","Connexion");
     }
 
     @FXML
-    void onInscription(ActionEvent event) throws IOException {
+    void onInscription() throws IOException {
         if(emailField.getText().isEmpty() || mdpField.getText().isEmpty() || nomField.getText().isEmpty()
         || prenomField.getText().isEmpty() || confirmationMdpField.getText().isEmpty()){
             showAlert(Alert.AlertType.WARNING,"Veuillez remplir tout les champs");
-        }else{
+        }else if(emailField.getText().equals(new UtilisateurRepository().getUserByMail(new Utilisateur(emailField.getText(),mdpField.getText())))){
+            showAlert(Alert.AlertType.ERROR, "Erreur lors de l'inscription");
+        }
+        else{
             if(mdpField.getText().equals(confirmationMdpField.getText())){
                 BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-                String mdpHashed=encoder.encode(mdpField.getText());
                 UtilisateurRepository userRepo=new UtilisateurRepository();
-                Utilisateur utilisateur = new Utilisateur(nomField.getText(),prenomField.getText(),emailField.getText(),mdpHashed,"user");
+                Utilisateur utilisateur = new Utilisateur(nomField.getText(),prenomField.getText(),emailField.getText(),encoder.encode(mdpField.getText()),"user");
                 if(userRepo.createUser(utilisateur)){
-                    showAlert(Alert.AlertType.INFORMATION,"Inscription Reussi. Veuillez vous connecter.");
+                    System.out.println("Inscription Reussi. Veuillez vous connecter.");
                     StartApplication.changeScene("accueil/login","Connexion");
                 }else{
                     showAlert(Alert.AlertType.ERROR, "Erreur lors de l'inscription");
