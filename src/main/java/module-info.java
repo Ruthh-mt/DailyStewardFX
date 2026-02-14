@@ -9,3 +9,4 @@ module appli.accueil {
     exports appli.accueil;
     exports appli;
     opens appli to javafx.fxml;
+}
