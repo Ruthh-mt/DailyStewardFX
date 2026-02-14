@@ -15,6 +15,7 @@ public class Database {
         private static String getUrl() {
             return "jdbc:mysql://" + SERVEUR + "/" + NOM_BDD + "?serverTimezone=UTC";
         }
+
         public static Connection getConnexion() {
             Connection cnx = null;
             try {
