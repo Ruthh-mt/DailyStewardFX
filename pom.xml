@@ -40,11 +40,12 @@
             <artifactId>javafx-base</artifactId>
             <version>26-ea+21</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail -->
+        <!-- Source: https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail -->
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>jakarta.mail</artifactId>
             <version>2.0.2</version>
+            <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
         <dependency>

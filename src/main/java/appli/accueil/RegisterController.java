@@ -30,33 +30,32 @@ public class RegisterController {
 
     @FXML
     void onConnexion() throws IOException {
-        StartApplication.changeScene("accueil/login","Connexion");
+        StartApplication.changeScene("accueil/login", "Connexion");
     }
 
     @FXML
     void onInscription() throws IOException {
-        if(emailField.getText().isEmpty() || mdpField.getText().isEmpty() || nomField.getText().isEmpty()
-        || prenomField.getText().isEmpty() || confirmationMdpField.getText().isEmpty()){
-            showAlert(Alert.AlertType.WARNING,"Veuillez remplir tout les champs");
-        }else if(emailField.getText().equals(new UtilisateurRepository().getUserByMail(new Utilisateur(emailField.getText(),mdpField.getText())))){
+        if (emailField.getText().isEmpty() || mdpField.getText().isEmpty() || nomField.getText().isEmpty()
+                || prenomField.getText().isEmpty() || confirmationMdpField.getText().isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Veuillez remplir tout les champs");
+        } else if (emailField.getText().equals(new UtilisateurRepository().getUserByMail(new Utilisateur(emailField.getText(), mdpField.getText())))) {
             showAlert(Alert.AlertType.ERROR, "Erreur lors de l'inscription");
-        }
-        else{
-            if(mdpField.getText().equals(confirmationMdpField.getText())){
-                BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-                UtilisateurRepository userRepo=new UtilisateurRepository();
-                Utilisateur utilisateur = new Utilisateur(nomField.getText(),prenomField.getText(),emailField.getText(),encoder.encode(mdpField.getText()),"user");
-                if(userRepo.createUser(utilisateur)){
-                    System.out.println("Inscription Reussi. Veuillez vous connecter.");
-                    StartApplication.changeScene("accueil/login","Connexion");
-                }else{
-                    showAlert(Alert.AlertType.ERROR, "Erreur lors de l'inscription");
-                }
-            } else{
-              showAlert(Alert.AlertType.WARNING,"Le mot de passe et la confirmation du mot de passe sont different");
+        } else if (!mdpField.getText().equals(confirmationMdpField.getText())) {
+            showAlert(Alert.AlertType.WARNING, "Le mot de passe et la confirmation du mot de passe sont different");
+        } else {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            UtilisateurRepository userRepo = new UtilisateurRepository();
+            Utilisateur utilisateur = new Utilisateur(nomField.getText(), prenomField.getText(), emailField.getText(), encoder.encode(mdpField.getText()), "user");
+            if (userRepo.createUser(utilisateur)) {
+                System.out.println("Inscription Reussi. Veuillez vous connecter.");
+                StartApplication.changeScene("accueil/login", "Connexion");
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Erreur lors de l'inscription");
             }
+
         }
     }
+
 
     private void showAlert(Alert.AlertType type, String message) {
         Alert alert = new Alert(type);

@@ -7,6 +7,7 @@ public class Utilisateur {
     private String email;
     private String mdp;
     private String role;
+    private int code;
 
     public Utilisateur(int idUser, String nom, String prenom, String email, String mdp, String role) {
         this.idUser = idUser;
@@ -76,6 +77,14 @@ public class Utilisateur {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     @Override
